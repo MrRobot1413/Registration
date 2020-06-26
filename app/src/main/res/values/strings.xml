@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">REGISTRATION</string>
+    <string name="firstName">Type your first name</string>
+    <string name="lastName">Type your last name</string>
+    <string name="button">Go next</string>
+    <string name="warning">Fields cannott be empty.</string>
+    <string name="sex">Choose your sex</string>
+    <string name="age">Type your age</string>
+</resources>
