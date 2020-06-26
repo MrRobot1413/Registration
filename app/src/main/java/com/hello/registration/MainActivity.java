@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText age;
     TextView warning;
     Switch Switch;
+    Boolean switchCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +31,18 @@ public class MainActivity extends AppCompatActivity {
         Switch = findViewById(R.id.switch1);
 
     }
-    public boolean getSwitchIsChecked() {
-        boolean isChecked = false;
-        if (Switch != null) {
-            isChecked = Switch.isChecked();
-        }
-        return isChecked;
-    }
 
     public void goToNextActivity(View view) {
         // проверка на пустоту полей
         if(firstName.getText().toString().trim().equals("") || lastName.getText().toString().trim().equals("")){
             warning.setVisibility(View.VISIBLE);
         } else{
-            if(getSwitchIsChecked()){
-                intent.putExtra("woman", "Woman");
-            } else {
-                intent.putExtra("man", "Man");
-            }
-            // создание нового объекта intent, и запуск новой активности при клике
+            // создание нового объекта intent, и запуск новой активности при клике, добавление экстр в intent.
             intent = new Intent(this, ActivityInfo.class);
+            intent.putExtra("switch", Switch.isChecked());
             intent.putExtra("age", age.getText().toString());
             intent.putExtra("firstName", firstName.getText().toString());
-            intent.putExtra("lastName", firstName.getText().toString());
+            intent.putExtra("lastName", lastName.getText().toString());
             startActivity(intent);
         }
     }
